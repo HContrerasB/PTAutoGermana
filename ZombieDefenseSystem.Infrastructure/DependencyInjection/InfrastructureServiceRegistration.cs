@@ -22,7 +22,7 @@ namespace ZombieDefenseSystem.Infrastructure.DependencyInjection
             IConfiguration configuration)
         {
             services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(
+    options.UseSqlServer(
         configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IZombieRepository, ZombieRepository>();

@@ -1,5 +1,4 @@
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using ZombieDefenseSystem.Api.Configuration;
 using ZombieDefenseSystem.Api.Middleware;
@@ -86,21 +85,19 @@ namespace ZombieDefenseSystem.Api
             {
                 var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-                db.Database.Migrate();
-
                 if (db.Database.CanConnect())
                 {
-                    Console.WriteLine("SQLite conectado correctamente.");
+                    Console.WriteLine("Azure SQL conectado correctamente.");
                 }
                 else
                 {
-                    Console.WriteLine("No se pudo conectar a SQLite.");
+                    Console.WriteLine("No se pudo conectar a Azure SQL.");
                 }
             }
 
             // Configure the HTTP request pipeline.
-            
-                app.UseSwagger();
+
+            app.UseSwagger();
                 app.UseSwaggerUI();
             
 

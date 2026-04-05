@@ -1,0 +1,6 @@
+@ZombieDefenseSystem.Api_HostAddress = http://localhost:5233
+
+GET {{ZombieDefenseSystem.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

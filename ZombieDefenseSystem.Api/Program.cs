@@ -38,7 +38,10 @@ namespace ZombieDefenseSystem.Api
                 options.AddPolicy("AngularFront", policy =>
                 {
                     policy
-                        .WithOrigins("http://localhost:4200")
+                        .WithOrigins(
+                            "http://localhost:4200",
+                            "https://HContrerasB.github.io"
+                        )
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });
@@ -96,13 +99,12 @@ namespace ZombieDefenseSystem.Api
             }
 
             // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
+            
                 app.UseSwagger();
                 app.UseSwaggerUI();
-            }
+            
 
-            app.UseHttpsRedirection();
+           // app.UseHttpsRedirection();
 
             app.UseCors("AngularFront");
 
